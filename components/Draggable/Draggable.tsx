@@ -18,7 +18,6 @@ interface Props {
   label?: string;
   listeners?: DraggableSyntheticListeners;
   style?: React.CSSProperties;
-  // buttonStyle?: React.CSSProperties;
   transform?: Transform | null;
   droppableItem?: { id: string; name: string; image: string };
 }
@@ -33,7 +32,6 @@ export const Draggable = forwardRef<HTMLButtonElement, Props>(
       listeners,
       transform,
       style,
-      // buttonStyle,
       ...props
     },
     ref

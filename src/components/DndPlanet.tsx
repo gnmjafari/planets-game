@@ -14,21 +14,21 @@ const DndPlanet: React.FC<PropsDND> = ({
   const [loading, setLoading] = useState(true);
 
   const handleImageLoad = () => {
-    setLoading(false); // تصویر بارگذاری شد
+    setLoading(false); 
   };
 
   useEffect(() => {
     if (droppableItem?.image) {
       const img = new Image();
-      img.src = droppableItem.image; // با خیال راحت مقدار را استفاده می‌کنیم
-      img.onload = handleImageLoad; // بعد از بارگذاری تصویر
+      img.src = droppableItem.image; 
+      img.onload = handleImageLoad; 
     } else {
-      setLoading(false); // اگر تصویر وجود نداشت، بارگذاری را false کنیم
+      setLoading(false); 
     }
   }, [droppableItem?.image]);
 
   return (
-    <div>
+    <>
       {loading ? (
         <span className="loading loading-ring loading-lg"></span>
       ) : (
@@ -61,7 +61,7 @@ const DndPlanet: React.FC<PropsDND> = ({
           <DraggableOverlay droppableItem={droppableItem} />
         </DndContext>
       )}
-    </div>
+    </>
   );
 };
 

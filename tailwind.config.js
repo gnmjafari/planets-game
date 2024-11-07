@@ -10,15 +10,15 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        mercury: "url('/image/planet/mercury.png')",
-        venus: "url('/image/planet/venus.png')",
-        earth: "url('/image/planet/earth.png')",
-        mars: "url('/image/planet/mars.png')",
-        jupiter: "url('/image/planet/jupiter.png')",
-        saturn: "url('/image/planet/saturn.png')",
-        uranus: "url('/image/planet/uranus.png')",
-        neptune: "url('/image/planet/neptune.png')",
-        sun: "url('/image/3d-view-sun-space.jpg')",
+        mercury: "url('/image/planet/mercury.webp')",
+        venus: "url('/image/planet/venus.webp')",
+        earth: "url('/image/planet/earth.webp')",
+        mars: "url('/image/planet/mars.webp')",
+        jupiter: "url('/image/planet/jupiter.webp')",
+        saturn: "url('/image/planet/saturn.webp')",
+        uranus: "url('/image/planet/uranus.webp')",
+        neptune: "url('/image/planet/neptune.webp')",
+        sun: "url('/image/3d-view-sun-space.webp')",
       },
     },
   },
@@ -26,12 +26,12 @@ export default {
 
   daisyui: {
     themes: false,
-    darkTheme: "dark", 
-    base: true, 
-    styled: true, 
+    darkTheme: "dark",
+    base: true,
+    styled: true,
     utils: true,
-    prefix: "", 
-    logs: true, 
-    themeRoot: ":root", 
+    prefix: "",
+    logs: true,
+    themeRoot: ":root",
   },
 };

@@ -18,7 +18,7 @@ const App: React.FC = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className=" flex-wrap gap-5 bg-center h-svh flex flex-col justify-end items-start p-10">
+        <div className=" flex-wrap gap-2 bg-center h-svh flex flex-col justify-end items-start p-10">
           {Object.entries(PLANETS).map(([key, value]) => {
             return <DndPlanet key={key} droppableItem={value} />;
           })}
