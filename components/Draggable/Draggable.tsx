@@ -70,6 +70,7 @@ export const Draggable = forwardRef<HTMLButtonElement, Props>(
               <img
                 src={props.droppableItem?.image}
                 alt={props.droppableItem?.name}
+                loading="lazy"
               />
             </div>
           </div>
