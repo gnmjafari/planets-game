@@ -1,7 +1,7 @@
 export const PLANETS = {
   mercury: {
     id: "mercury",
-    name: "مرکوری",
+    name: "عطارد",
     image: "/image/planet/mercury.png",
     position: "left-[42%] top-[5%]",
   },
@@ -37,15 +37,14 @@ export const PLANETS = {
   },
   uranus: {
     id: "uranus",
-    name: "زحل",
+    name: "اورانوس",
     image: "/image/planet/uranus.png",
-    position: "left-[83%] top-[80%]",
+    position: "left-[83%] bottom-[5%]",
   },
   neptune: {
     id: "neptune",
-    name: "زحل",
+    name: "نپتون",
     image: "/image/planet/neptune.png",
-    position: "left-[90%] top-[60%]",
-
+    position: "left-[90%] top-[15%]",
   },
 };

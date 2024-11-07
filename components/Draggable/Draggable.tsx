@@ -62,10 +62,10 @@ export const Draggable = forwardRef<HTMLButtonElement, Props>(
           tabIndex={handle ? -1 : undefined}
           ref={ref}
         >
-          <div
-            className="flex flex-col justify-center items-center gap-2"
-          >
-            {/* <div className="text-2xl">{props.droppableItem?.name}</div> */}
+          <div className="indicator w-fit flex rounded-full flex-col justify-center items-center">
+            <div className="text-slate-50 text-lg font-extrabold indicator-item indicator-middle indicator-center  badge p-3 badge-lg backdrop-blur-xl badge-outline">
+              {props.droppableItem?.name}
+            </div>
             <div>
               <img
                 src={props.droppableItem?.image}

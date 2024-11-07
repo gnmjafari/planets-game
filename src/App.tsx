@@ -5,13 +5,13 @@ import { PLANETS } from "./data/data";
 const App: React.FC = () => {
   return (
     <div
-      className="relative bg-sun bg-cover flex-wrap bg-center w-screen h-svh flex flex-col justify-start items-start"
+      className="relative bg-sun bg-cover  bg-center w-screen h-svh flex flex-col justify-start items-start"
       style={{
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className=" flex-wrap bg-center h-svh flex flex-col justify-start items-start p-5">
+      <div className=" flex-wrap gap-10 bg-center h-svh flex flex-col justify-end items-start p-10">
         {Object.entries(PLANETS).map(([key, value]) => {
           return <DndPlanet key={key} droppableItem={value} />;
         })}
