@@ -1,10 +1,14 @@
 import React, { lazy, Suspense, useState } from "react";
 import { PLANETS } from "./data/data";
 import GameTutorialModal from "./components/GameTutorialModal";
+import WrongAnswerModal from "./components/WrongAnswerModal";
+import CorrectAnswerModal from "./components/CorrectAnswerModal";
 const DndPlanet = lazy(() => import("./components/DndPlanet"));
 
 const App: React.FC = () => {
   const [openGameTutorial, setOpenGameTutorial] = useState<boolean>(true);
+  const [openWrongAnswer, setOpenWrongAnswer] = useState<boolean>(false);
+  const [openCorrectAnswer, setOpenCorrectAnswer] = useState<boolean>(false);
 
   return (
     <Suspense
@@ -31,7 +35,19 @@ const App: React.FC = () => {
         </button>
         <div className=" flex-wrap gap-2 bg-center h-svh flex flex-col justify-end items-start p-10">
           {Object.entries(PLANETS).map(([key, value]) => {
-            return <DndPlanet key={key} droppableItem={value} />;
+            return (
+              <DndPlanet
+                key={key}
+                droppableItem={value}
+                dargEndCustomFun={(answer) => {
+                  if (answer) {
+                    setOpenCorrectAnswer(true);
+                  } else {
+                    setOpenWrongAnswer(true);
+                  }
+                }}
+              />
+            );
           })}
         </div>
       </div>
@@ -40,6 +56,20 @@ const App: React.FC = () => {
         isOpen={openGameTutorial}
         onClose={() => {
           setOpenGameTutorial(false);
+        }}
+      />
+
+      <WrongAnswerModal
+        isOpen={openWrongAnswer}
+        onClose={() => {
+          setOpenWrongAnswer(false);
+        }}
+      />
+
+      <CorrectAnswerModal
+        isOpen={openCorrectAnswer}
+        onClose={() => {
+          setOpenCorrectAnswer(false);
         }}
       />
     </Suspense>

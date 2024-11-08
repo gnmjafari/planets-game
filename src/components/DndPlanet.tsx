@@ -8,22 +8,23 @@ const DndPlanet: React.FC<PropsDND> = ({
   collisionDetection,
   modifiers,
   droppableItem,
+  dargEndCustomFun,
 }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [parent, setParent] = useState<UniqueIdentifier | null>(null);
   const [loading, setLoading] = useState(true);
 
   const handleImageLoad = () => {
-    setLoading(false); 
+    setLoading(false);
   };
 
   useEffect(() => {
     if (droppableItem?.image) {
       const img = new Image();
-      img.src = droppableItem.image; 
-      img.onload = handleImageLoad; 
+      img.src = droppableItem.image;
+      img.onload = handleImageLoad;
     } else {
-      setLoading(false); 
+      setLoading(false);
     }
   }, [droppableItem?.image]);
 
@@ -36,7 +37,8 @@ const DndPlanet: React.FC<PropsDND> = ({
           collisionDetection={collisionDetection}
           modifiers={parent === null ? undefined : modifiers}
           onDragStart={() => setIsDragging(true)}
-          onDragEnd={({ over }) => {
+          onDragEnd={({ over }) => {          
+            dargEndCustomFun(over ? true : false);
             setParent(over ? over.id : null);
             setIsDragging(false);
           }}
