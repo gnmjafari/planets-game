@@ -1,6 +1,14 @@
-Live demo : [Planets game](https://planets-game-eta.vercel.app/)
+# Planets Game: [Live demo](https://planets-game-eta.vercel.app/)
 
-# React + TypeScript + Vite
+## Libraries used
+- React
+- Vite
+- Typescripts
+- Dnd Kit
+- Tailwindcss
+- Daisyui
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
