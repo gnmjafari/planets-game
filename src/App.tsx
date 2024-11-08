@@ -1,8 +1,15 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { PLANETS } from "./data/data";
+import GameTutorialModal from "./components/GameTutorialModal";
+import WrongAnswerModal from "./components/WrongAnswerModal";
+import CorrectAnswerModal from "./components/CorrectAnswerModal";
 const DndPlanet = lazy(() => import("./components/DndPlanet"));
 
 const App: React.FC = () => {
+  const [openGameTutorial, setOpenGameTutorial] = useState<boolean>(true);
+  const [openWrongAnswer, setOpenWrongAnswer] = useState<boolean>(false);
+  const [openCorrectAnswer, setOpenCorrectAnswer] = useState<boolean>(false);
+
   return (
     <Suspense
       fallback={
@@ -18,12 +25,53 @@ const App: React.FC = () => {
           backgroundPosition: "center",
         }}
       >
+        <button
+          className="btn btn-warning btn-outline  absolute top-5 right-10"
+          onClick={() => {
+            setOpenGameTutorial(true);
+          }}
+        >
+          آموزش بازی
+        </button>
         <div className=" flex-wrap gap-2 bg-center h-svh flex flex-col justify-end items-start p-10">
           {Object.entries(PLANETS).map(([key, value]) => {
-            return <DndPlanet key={key} droppableItem={value} />;
+            return (
+              <DndPlanet
+                key={key}
+                droppableItem={value}
+                dargEndCustomFun={(answer) => {
+                  if (answer) {
+                    setOpenCorrectAnswer(true);
+                  } else {
+                    setOpenWrongAnswer(true);
+                  }
+                }}
+              />
+            );
           })}
         </div>
       </div>
+
+      <GameTutorialModal
+        isOpen={openGameTutorial}
+        onClose={() => {
+          setOpenGameTutorial(false);
+        }}
+      />
+
+      <WrongAnswerModal
+        isOpen={openWrongAnswer}
+        onClose={() => {
+          setOpenWrongAnswer(false);
+        }}
+      />
+
+      <CorrectAnswerModal
+        isOpen={openCorrectAnswer}
+        onClose={() => {
+          setOpenCorrectAnswer(false);
+        }}
+      />
     </Suspense>
   );
 };

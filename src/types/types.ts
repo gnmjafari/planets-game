@@ -10,9 +10,10 @@ export interface PropsDND {
   value?: string;
   droppableItem?: { id: string; name: string; image: string; position: string };
   droppableKey?: number;
+  dargEndCustomFun: (answer: boolean) => void;
 }
 
 export interface DraggableProps {
-    handle?: boolean;
-    droppableItem?: { id: string; name: string; image: string };
-  }
+  handle?: boolean;
+  droppableItem?: { id: string; name: string; image: string };
+}
