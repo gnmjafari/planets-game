@@ -1,8 +1,11 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { PLANETS } from "./data/data";
+import GameTutorialModal from "./components/GameTutorialModal";
 const DndPlanet = lazy(() => import("./components/DndPlanet"));
 
 const App: React.FC = () => {
+  const [openGameTutorial, setOpenGameTutorial] = useState<boolean>(true);
+
   return (
     <Suspense
       fallback={
@@ -18,12 +21,27 @@ const App: React.FC = () => {
           backgroundPosition: "center",
         }}
       >
+        <button
+          className="btn btn-warning btn-outline  absolute top-5 right-10"
+          onClick={() => {
+            setOpenGameTutorial(true);
+          }}
+        >
+          آموزش بازی
+        </button>
         <div className=" flex-wrap gap-2 bg-center h-svh flex flex-col justify-end items-start p-10">
           {Object.entries(PLANETS).map(([key, value]) => {
             return <DndPlanet key={key} droppableItem={value} />;
           })}
         </div>
       </div>
+
+      <GameTutorialModal
+        isOpen={openGameTutorial}
+        onClose={() => {
+          setOpenGameTutorial(false);
+        }}
+      />
     </Suspense>
   );
 };
